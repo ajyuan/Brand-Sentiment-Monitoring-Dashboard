@@ -2,6 +2,7 @@ const error = function (err, response, body) {
     console.log('ERROR [%s]', err);
 };
 
+const Moment = require('moment');
 const Twitter = require('twitter-node-client').Twitter;
 const config = {
     'consumerKey': "CNhkRnj2G4VBfxNS2muTLVHlA",
@@ -21,7 +22,10 @@ const searchResults = twitter.getSearch(
         statuses = data['statuses'];
         for (let i = 0; i < 100; i++) {
             if (statuses[i]) {
-                results.push([statuses[i]['text'], statuses[i]['created_at']]);
+                let date = new Moment(statuses[i]['created_at']);
+                date = date.valueOf();
+
+                results.push([statuses[i]['text'], date]);
             } else {
                 break;
             }
