@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import Divider from '@material-ui/core/Divider';
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -8,7 +11,7 @@ import InputBase from '@material-ui/core/InputBase';
 const useStyles = makeStyles(theme => ({
   twitter: {
     marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(11),
+    marginRight: theme.spacing(48),
   },
   reddit: {
     marginLeft: theme.spacing(2),
@@ -19,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     width: 1,
-    height: 450,
+    height: 570,
     margin: 4,
   },
   search: {
@@ -57,6 +60,13 @@ const useStyles = makeStyles(theme => ({
       width: 200,
     },
   },
+  title: {
+    flexGrow: 1,
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
 }));
 
 function App() {
@@ -64,19 +74,26 @@ function App() {
 
   return (
       <div>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'Search' }}
-          />
-        </div>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography className={classes.title} variant="h6" noWrap>
+              SegFault: Search Social Media for Sentiment Analysis of Products over Time
+            </Typography>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ 'aria-label': 'Search' }}
+              />
+            </div>
+          </Toolbar>
+        </AppBar>
         <br></br>
         <div className = {classes.root}>
           <div className = {classes.twitter}>
