@@ -1,9 +1,9 @@
 import praw
 
-def generateData(keyword, subreddits=["all"], resultLimits=5) -> list:
+def generateData(keyword, subreddits=["all"], resultLimits=5, time='all') -> list:
     out = []
     for subreddit in subreddits:
-        for result in reddit.subreddit(subreddit).search(keyword, limit=resultLimits): 
+        for result in reddit.subreddit(subreddit).search(keyword, limit=resultLimits, time_filter=time): 
             if result.selftext:
                 out.append([result.selftext,result.created_utc])
             for comment in result.comments.list():
