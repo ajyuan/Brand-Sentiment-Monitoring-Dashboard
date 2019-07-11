@@ -84,7 +84,7 @@ function App() {
                 <SearchIcon />
               </div>
               <InputBase
-                  placeholder="Search…"
+                  placeholder="Search products…"
                   classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -97,6 +97,7 @@ function App() {
         <br></br>
         <div className = {classes.root}>
           <div className = {classes.twitter}>
+            <br></br>
             <div>Twitter</div>
             <br></br>
             <div>Display Results</div>
@@ -105,6 +106,7 @@ function App() {
           </div>
           <Divider className={classes.divider} />
           <div className = {classes.reddit}>
+            <br></br>
             <div>Reddit</div>
             <br></br>
             <div>Display Results</div>
