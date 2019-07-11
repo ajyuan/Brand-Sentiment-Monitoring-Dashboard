@@ -12,6 +12,7 @@ const config = {
 
 const twitter = new Twitter(config);
 
+let results = [];
 const searchResults = twitter.getSearch(
     { 'q': 'ibm', 'count': 100 }, 
     error, 
@@ -20,10 +21,11 @@ const searchResults = twitter.getSearch(
         statuses = data['statuses'];
         for (let i = 0; i < 100; i++) {
             if (statuses[i]) {
-                console.log(statuses[i]['text']);
+                results.push([statuses[i]['text'], statuses[i]['created_at']]);
             } else {
                 break;
             }
         }
+        console.log(results);
     }
 );
