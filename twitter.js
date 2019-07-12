@@ -19,7 +19,7 @@ const searchResults = twitter.getSearch(
     error, 
     function (data) {
         data = JSON.parse(data);
-        statuses = data['statuses'];
+        const statuses = data['statuses'];
         for (let i = 0; i < 100; i++) {
             if (statuses[i]) {
                 let date = new Moment(statuses[i]['created_at']);
@@ -30,6 +30,7 @@ const searchResults = twitter.getSearch(
                 break;
             }
         }
-        console.log(results);
     }
 );
+
+console.log(results);
