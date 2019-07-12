@@ -13,7 +13,7 @@ class TwitterComponent extends React.Component {
     .then(response => response.json())
     .then(result => {
       let twitterText = "";
-      for (var i = 0; i < 100; i++) {
+      for (var i = 0; i < result.statuses.length; i++) {
         if (result.statuses[i]) {
           twitterText += result.statuses[i]['text'];
         }
@@ -23,7 +23,6 @@ class TwitterComponent extends React.Component {
         items: result.statuses,
         aggregateItems: twitterText
       });
-      console.log(twitterText);
     },
     // Note: it's important to handle errors here
     // instead of a catch() block so that we don't swallow

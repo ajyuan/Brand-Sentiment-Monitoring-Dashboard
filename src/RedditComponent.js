@@ -4,14 +4,13 @@ class RedditComponent extends React.Component {
   state = {
     error: null,
     isLoaded: false,
-    items: []
+    items: ""
   };
 
   componentDidMount() {
     fetch("/reddit")
-    .then(response => response.json())
+    .then(response => response.text())
     .then(result => {
-      console.log(result)
       this.setState({
         isLoaded: true,
         items: result
