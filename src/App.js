@@ -104,7 +104,6 @@ function App() {
             <div>Display Results</div>
             <br></br><br></br><br></br>
             <TwitterComponent />
-            <RedditComponent />
             <div>Interpretation of Results</div>
           </div>
           <Divider className={classes.divider}/>
@@ -114,6 +113,7 @@ function App() {
             <br></br>
             <div>Display Results</div>
             <br></br><br></br><br></br>
+            <RedditComponent />
             <div>Interpretation of Results</div>
           </div>
         </div>
