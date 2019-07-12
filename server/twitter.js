@@ -114,6 +114,37 @@ app.post('/watson/twitter',function(req,res){
         });
 })
 
+app.post('/watson/reddit',function(req,res){
+  const param = req.body.a;
+  console.log("param",param);
+  if (!param) {
+  res.json({
+    error: "Missing required parameter `q`"
+  });
+  return;
+  }
+
+  const runAnalysis = query => {
+    const parameters = {
+      'text': param,
+      'features': {
+        'entities': {
+          'sentiment': true,
+          'limit': 1
+        }
+      }
+    };
+
+    naturalLanguageUnderstanding.analyze(parameters)
+      .then(analysisResults => {
+        res.send(JSON.stringify(analysisResults, null, 2));
+      })
+      .catch(err => {
+        console.log('error:', err);
+      });
+  };
+})
+
 
 app.get('/reddit', function(req, res) {
     res.send(result);
