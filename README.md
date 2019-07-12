@@ -1,5 +1,7 @@
-pip install --upgrade "ibm-watson>=3.0.4"
-
-pip install 'praw'
-
-pip install 'tweepy'
+### TODO:
+- implement express.js
+- connect react search bar to API files
+- connect API files to Watson
+- connect Watson to the state of react
+- ???
+- profit.
