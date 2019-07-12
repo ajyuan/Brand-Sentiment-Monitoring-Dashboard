@@ -86,7 +86,7 @@ function App() {
                 <SearchIcon/>
               </div>
               <InputBase
-                  placeholder="Search products…"
+                  placeholder="Search…"
                   classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
