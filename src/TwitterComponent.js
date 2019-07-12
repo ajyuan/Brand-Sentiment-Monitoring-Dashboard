@@ -9,7 +9,8 @@ class TwitterComponent extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      result: []
     };
     this.callWatson = this.callWatson.bind(this)
   }
@@ -45,7 +46,7 @@ class TwitterComponent extends React.Component {
   }
 
   callWatson(){
-    var item = this.state.items[0].text
+    var item = this.state.items[2].text
     console.log("item:",item);
 
     // var postBody = {
@@ -65,13 +66,13 @@ class TwitterComponent extends React.Component {
       body: JSON.stringify({a: item})
     }).then(function(response) {
       return response.text();
-    }).then(function(data) {
-      console.log(data);
+    }).then(data => {this.setState({result: data})
     });
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, items,result } = this.state;
+    console.log(result)
     if (error) {
       return <div>Error: {error.message}</div>;
     }else if (!isLoaded) {
@@ -80,6 +81,7 @@ class TwitterComponent extends React.Component {
       return (
         <div>
         <Button onClick={this.callWatson}>Call Watson</Button>
+        <div>Sentiment:{result}</div>
         <ul>
           {items.map(item => (
             <li>

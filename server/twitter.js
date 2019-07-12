@@ -95,9 +95,7 @@ app.post('/watson/twitter',function(req,res){
     });
     return;
     }
-
-    const runAnalysis = query => {
-      const parameters = {
+    const parameters = {
         'text': param,
         'features': {
           'entities': {
@@ -105,16 +103,15 @@ app.post('/watson/twitter',function(req,res){
             'limit': 1
           }
         }
-      };
+    }
 
-      naturalLanguageUnderstanding.analyze(parameters)
+    naturalLanguageUnderstanding.analyze(parameters)
         .then(analysisResults => {
           res.send(JSON.stringify(analysisResults, null, 2));
         })
         .catch(err => {
           console.log('error:', err);
         });
-    };
 })
 
 
