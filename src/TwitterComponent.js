@@ -1,13 +1,18 @@
 import React from 'react';
 import { Button } from 'react-bootstrap'
+const request = require('request');
 const Twitter = require('twitter-node-client').Twitter;
 
 class TwitterComponent extends React.Component {
-  state = {
-    error: null,
-    isLoaded: false,
-    items: []
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+    this.callWatson = this.callWatson.bind(this)
+  }
 
   componentDidMount() {
 
@@ -32,6 +37,33 @@ class TwitterComponent extends React.Component {
     }
     );
   }
+
+  callWatson(){
+    var item = this.state.items[0].text
+    console.log("item:",item);
+
+    // var postBody = {
+    //   url: '/watson',
+    //   body: item
+    // }
+    // request.post(postBody, function(error, response) {
+    //   console.log(postBody);
+    //   console.log("response:",response);
+    // });
+    fetch('/watson/twitter', {
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({a: item})
+    }).then(function(response) {
+      return response.text();
+    }).then(function(data) {
+      console.log(data);
+    });
+  }
+
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
@@ -40,6 +72,8 @@ class TwitterComponent extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
+        <div>
+        <Button onClick={this.callWatson}>Call Watson</Button>
         <ul>
           {items.map(item => (
             <li>
@@ -47,6 +81,7 @@ class TwitterComponent extends React.Component {
             </li>
           ))}
         </ul>
+        </div>
       );
     }
   }
