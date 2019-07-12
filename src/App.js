@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import Divider from '@material-ui/core/Divider';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import {fade, makeStyles} from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
-import TwitterComponent from './TwitterComponent';
 
 const useStyles = makeStyles(theme => ({
   twitter: {
     marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(11),
+    marginRight: theme.spacing(48),
   },
   reddit: {
     marginLeft: theme.spacing(2),
@@ -20,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   divider: {
     width: 1,
-    height: 450,
+    height: 470,
     margin: 4,
   },
   search: {
@@ -58,6 +60,13 @@ const useStyles = makeStyles(theme => ({
       width: 200,
     },
   },
+  title: {
+    flexGrow: 1,
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
 }));
 
 function App() {
@@ -65,36 +74,54 @@ function App() {
 
   return (
       <div>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'Search' }}
-          />
-        </div>
-        <br></br>
-        <div className = {classes.root}>
-          <div className = {classes.twitter}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography className={classes.title} variant="h6" noWrap>
+              SegFault: Search Social Media for Sentiment Analysis of Products over Time
+            </Typography>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon/>
+              </div>
+              <InputBase
+                  placeholder="Search products…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{'aria-label': 'Search'}}
+              />
+            </div>
+          </Toolbar>
+        </AppBar>
+        <div className={classes.root}>
+          <div className={classes.twitter}>
+            <br></br>
             <div>Twitter</div>
             <br></br>
             <div>Display Results</div>
             <br></br><br></br><br></br>
-            <TwitterComponent/>
+            <div>Interpretation of Results</div>
           </div>
-          <Divider className={classes.divider} />
-          <div className = {classes.reddit}>
+          <Divider className={classes.divider}/>
+          <div className={classes.reddit}>
+            <br></br>
             <div>Reddit</div>
             <br></br>
             <div>Display Results</div>
             <br></br><br></br><br></br>
             <div>Interpretation of Results</div>
           </div>
+        </div>
+        <div className={classes.reddit}>
+          Why is this data important and useful?
+          <br></br>
+          <br></br>
+          This can help your company determine what direction to go with your products.
+          <br></br>
+          It can also help you determine on which sites you should focus your advertising.
+          <br></br>
+          Finally, this data can help consumers pick products to purchase.
         </div>
       </div>
   );
