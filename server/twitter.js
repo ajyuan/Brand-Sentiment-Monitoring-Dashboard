@@ -47,7 +47,8 @@ let options = {
 let out = []
 reddit.search(options, function(err, resp) {
     for (var i = 0; i < resp.children.length; i++) {
-        out.push([resp.children[i].data.selftext, resp.children[i].data.created_utc])
+        // out.push([resp.children[i].data.selftext, resp.children[i].data.created_utc])
+        out.push([resp.children[i].data.selftext])
         //console.log(resp.children[i].data)
         //console.log(resp.children[i].data.url)
         const permurl = resp.children[i].data.permalink
@@ -60,7 +61,8 @@ reddit.search(options, function(err, resp) {
                 const children = comments.data.children
                 for (let i = 0; i < children.length; i++) {
                     if (children[i].data) {
-                        out.push([children[i].data.body, children[i].data.created_utc])
+                        // out.push([children[i].data.body, children[i].data.created_utc])
+                        out.push([children[i].data.body])
                     }
                 }
             }

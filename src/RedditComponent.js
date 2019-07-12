@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TwitterComponent extends React.Component {
+class RedditComponent extends React.Component {
   state = {
     error: null,
     isLoaded: false,
@@ -8,13 +8,13 @@ class TwitterComponent extends React.Component {
   };
 
   componentDidMount() {
-
-    fetch("/twitter")
+    fetch("/reddit")
     .then(response => response.json())
     .then(result => {
+      console.log(result)
       this.setState({
         isLoaded: true,
-        items: result.statuses
+        items: result
       });
     },
     // Note: it's important to handle errors here
@@ -38,11 +38,7 @@ class TwitterComponent extends React.Component {
     } else {
       return (
         <ul>
-          {items.map(item => (
-            <li>
-              {item.text}
-            </li>
-          ))}
+          {items}
         </ul>
       );
     }
@@ -51,4 +47,4 @@ class TwitterComponent extends React.Component {
 
 
 
-export default TwitterComponent;
+export default RedditComponent;
