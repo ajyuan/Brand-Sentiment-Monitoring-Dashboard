@@ -1,3 +1,8 @@
-#!pip install --upgrade "ibm-watson>=3.0.4"
-#!pip install 'praw'
-#!pip install 'tweepy'
+To Run:
+
+in root:
+npm run prep
+installs all package dependencies
+
+npm start
+runs reactapps and express server
