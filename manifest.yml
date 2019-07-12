@@ -1,0 +1,4 @@
+applications:
+  - name: SegFault
+    random-route: true
+    memory: 128M

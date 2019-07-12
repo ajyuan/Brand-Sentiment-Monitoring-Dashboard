@@ -1,7 +1,10 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Button } from 'react-bootstrap'
 const request = require('request');
 const Twitter = require('twitter-node-client').Twitter;
+=======
+>>>>>>> 54698ae34c68eac73b6336c90e1879dcf135c600
 
 class TwitterComponent extends React.Component {
   constructor(props) {
@@ -16,13 +19,19 @@ class TwitterComponent extends React.Component {
 
   componentDidMount() {
 
-    fetch("/ping")
+    fetch("/twitter")
     .then(response => response.json())
     .then(result => {
-      console.log("result",result.statuses[0].text);
+      let twitterText = "";
+      for (var i = 0; i < result.statuses.length; i++) {
+        if (result.statuses[i]) {
+          twitterText += result.statuses[i]['text'];
+        }
+      }
       this.setState({
         isLoaded: true,
-        items: result.statuses
+        items: result.statuses,
+        aggregateItems: twitterText
       });
     },
     // Note: it's important to handle errors here
