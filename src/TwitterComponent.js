@@ -1,10 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Button } from 'react-bootstrap'
 const request = require('request');
 const Twitter = require('twitter-node-client').Twitter;
-=======
->>>>>>> 54698ae34c68eac73b6336c90e1879dcf135c600
 
 class TwitterComponent extends React.Component {
   constructor(props) {

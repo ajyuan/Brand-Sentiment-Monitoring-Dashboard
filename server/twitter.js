@@ -117,8 +117,6 @@ app.post('/watson/twitter',function(req,res){
     };
 })
 
-app.listen(process.env.PORT || 8080);
-
 
 app.get('/reddit', function(req, res) {
     res.send(result);
