@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Divider from '@material-ui/core/Divider';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
-import ScrapeTweet from './ScrapeTweet';
+import TwitterComponent from './TwitterComponent';
 
 const useStyles = makeStyles(theme => ({
   twitter: {
@@ -85,7 +85,7 @@ function App() {
             <br></br>
             <div>Display Results</div>
             <br></br><br></br><br></br>
-            <ScrapeTweet/>
+            <TwitterComponent/>
           </div>
           <Divider className={classes.divider} />
           <div className = {classes.reddit}>

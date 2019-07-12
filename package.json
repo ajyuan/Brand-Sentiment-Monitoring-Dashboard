@@ -22,8 +22,8 @@
     "twitter-node-client": "0.0.6"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"cd Client && nodemon server.js\"",
-    "prep": "concurrently \"npm i\" \"cd Client && npm i\"",
+    "start": "concurrently \"react-scripts start\" \"cd server && nodemon server.js\"",
+    "prep": "concurrently \"npm i\" \"cd server && npm i\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,9 +44,9 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^4.1.1",
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
-    "@babel/register": "^7.4.4"
+    "@babel/register": "^7.4.4",
+    "concurrently": "^4.1.1"
   }
 }
