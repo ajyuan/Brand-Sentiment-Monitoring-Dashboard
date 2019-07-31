@@ -2,7 +2,7 @@ const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-unde
 
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2018-11-16',
-  iam_apikey: 'OaH7XCqCOG4aUoYXwJgUJ2mhRgn4-i8GgZHelRaD4RDA',
+  iam_apikey: '',
   url: 'https://gateway.watsonplatform.net/natural-language-understanding/api'
 });
 

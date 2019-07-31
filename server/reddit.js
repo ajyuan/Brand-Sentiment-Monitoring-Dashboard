@@ -1,6 +1,6 @@
 var rawjs = require('raw.js');
 var reddit = new rawjs("WatsonBot");
-reddit.setupOAuth2("ZweJ_5vnHiceww", "ntESUzk15C07el8yIvMzyVfFV9E");
+reddit.setupOAuth2("", "");
 
 let options = {
     q: 'IBM Cloud'

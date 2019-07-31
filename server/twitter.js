@@ -6,15 +6,15 @@ const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-unde
 
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2018-11-16',
-  iam_apikey: 'OaH7XCqCOG4aUoYXwJgUJ2mhRgn4-i8GgZHelRaD4RDA',
+  iam_apikey: '',
   url: 'https://gateway.watsonplatform.net/natural-language-understanding/api'
 });
 
 const config = {
-    'consumerKey': "CNhkRnj2G4VBfxNS2muTLVHlA",
-    'consumerSecret': "eGwDdvcvZIhQWMpElPNlBZICIwzfPWG8DNFfIoWNmIhyNtN0mY",
-    'accessToken': "2314802384-1DChgFJp5CdAKqIIatRMEJQHCw9AGMIg6evKZ6v",
-    'accessTokenSecret': "9NwYMXa1Ted6QgKfbdQWSKLzvZRxUmHLwqOsqgX3dGVnl"
+    'consumerKey': "",
+    'consumerSecret': "",
+    'accessToken': "",
+    'accessTokenSecret': ""
 };
 const twitter = new Twitter(config);
 
